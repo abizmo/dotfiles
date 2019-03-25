@@ -32,6 +32,14 @@
 	zle -N goto_home
 	bindkey "^h" goto_home
 
+# clear
+	function clear_window() {
+		BUFFER="clear"
+		zle accept-line
+	}
+	zle -N clear_window
+	bindkey "^j" clear_window
+	
 # Edit and rerun
 	function edit_and_run() {
 		BUFFER="fc"
