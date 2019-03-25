@@ -1,5 +1,21 @@
+" Plugins configuration
+	set nocompatible
+	filetype off
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+
+	Plugin 'VundleVim/Vundle.vim'
+
+	Plugin 'pangloss/vim-javascript'
+	Plugin 'jiangmiao/auto-pairs'
+	Plugin 'dracula/vim'
+
+	call vundle#end()
+	filetype plugin indent on
+	
 " General Vim settings
 	syntax on
+	color dracula
 	let mapleader=","
 	set autoindent
 	set tabstop=4
@@ -74,8 +90,21 @@
 	" Markup
 		inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
 
+" Netrw configuration
+	let g:netrw_banner = 0
+	let g:netrw_liststyle = 3
+	
+" Ctrlp.vim configuration
+	set runtimepath^=~/.vim/bundle/ctrlp.vim
+	set wildignore+=*/node_modules/*,*/dist/*
+	let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+	inoremap <leader>p <Esc>:CtrlP<CR>
+	nnoremap <leader>p :CtrlP<CR>
 
 " File and Window Management 
+	inoremap <leader><leader> <Esc>
+	vnoremap <leader><leader> <Esc>
+
 	inoremap <leader>w <Esc>:w<CR>
 	nnoremap <leader>w :w<CR>
 
@@ -89,6 +118,11 @@
 	nnoremap <leader>t :tabnew<CR>:Ex<CR>
 	nnoremap <leader>v :vsplit<CR>:w<CR>:Ex<CR>
 	nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
+
+	nnoremap <leader>j :tablast<CR>
+	nnoremap <leader>k :tabfirst<CR>
+	nnoremap <leader>l :tabn<CR>
+	nnoremap <leader>h :tabp<CR>
 
 " Return to the same line you left off at
 	augroup line_return
