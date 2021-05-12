@@ -82,10 +82,17 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+function gitignore() {
+	curl -sLw "\n" https://www.gitignore.io/api/$@ >> .gitignore
+}
+
 alias mongodb="/usr/local/bin/mongod --dbpath /Users/abizmo/Dev/db"
 alias proj="cd ~/Dev/Projects"
 alias doc="cd ~/Documents"
 alias dw="cd ~/Downloads"
+alias ytv="youtube-dl -f 'best' -o '~/Movies/Youtube/%(title)s.%(ext)s' --restrict-filenames"
+alias ls="ls -alG"
+alias soz="source ~/.zshrc"
 
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
